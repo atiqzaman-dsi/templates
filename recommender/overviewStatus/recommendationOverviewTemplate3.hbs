@@ -1,0 +1,58 @@
+<div class="col-xs-12 col-sm-8 col-md-8" >
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 inprogressOverView" id="overview-container">
+            <div class="alert {{#if HardDeadlineExpired}}alert-warning{{else}}{{#if ApplicationStatusAlert}}alert-warning{{/if}}{{/if}} ">
+                {{#if HardDeadlineExpired}}
+                    <div class="row">
+                        <div class="col-xs-2 col-md-1">
+                            <h2><span class="glyphicon glyphicon-warning-sign "></span></h2>
+                        </div>
+                        <div class="col-xs-10 col-md-11">
+                            <h2 class="break-all-word">The deadline has passed</h2>
+                        </div>
+                        <div class="col-xs-offset-1 col-xs-11">
+                            <h4>You are no longer able to submit this recommendation.</h4>
+                        </div>
+                    </div>
+                {{else}}
+                    {{#if Expired}}
+                        <div class="row">
+                            <div class="col-xs-2 col-md-1">
+                                <h2><span class="glyphicon glyphicon-warning-sign "></span></h2>
+                            </div>
+                            <div class="col-xs-10 col-md-11">
+                                <h2 class="break-all-word">This recommendation is late</h2>
+                            </div>
+                            <div class="col-xs-offset-1 col-xs-11">
+                                <h4>Please submit it as soon as you can.</h4>
+                            </div>
+                        </div>
+                    {{else}}
+                        {{#if ApplicationStatusAlert}}                    
+                            <div class="applicationDate overViewTopPaddding">
+                                This recommendation                         
+                                {{#if ExpiredToday}}
+                                    will be <strong>expired by today
+                                {{else}}
+                                    is <strong> due in {{ApplicationDueDays}}
+                                {{/if}}</strong>
+                            </div>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+                <br/><div class="applicationDate"><strong>{{Term}}</strong> recommendation</strong></div>
+                <div class="leftMarginDiv"> 
+                    <div class="topMarginedDiv properMargin divFontSize">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                        <strong>&nbsp; &nbsp;{{#if ExpiredToday}}Your application will be expired by today{{else}}Due by {{ApplicationDeadline}}{{/if}}</strong>
+                    </div>
+                    <div class="topMarginedDiv properMargin divFontSize">                        
+                        <button class="btn btn-primary btnReadyToSubmit sectionBtn topMarginedDiv enrollmentChoiceTopMargin" disabled="true"><strong>Submit Recommendation</strong></button>
+                        <button class="btn btn-primary btnDeclineRecommendation sectionBtn topMarginedDiv enrollmentChoiceTopMargin" disabled="true"><strong>Decline Recommendation</strong></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
